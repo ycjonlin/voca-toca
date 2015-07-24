@@ -44,7 +44,7 @@
     "jest-cli": "^0.4.15",
     "less": "^2.5.1",
     "less-loader": "^2.2.0",
-    "minimist": "^1.1.1",
+    "minimist": "^1.1.2",
     "mkdirp": "^0.5.1",
     "postcss": "^4.1.16",
     "postcss-loader": "^0.5.1",

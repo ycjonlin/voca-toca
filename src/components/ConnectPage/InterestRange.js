@@ -3,13 +3,12 @@
 import React, { PropTypes } from 'react';
 import styles from './InterestRange.less';
 import withStyles from '../../decorators/withStyles';
-import Link from '../../utils/Link';
 
 @withStyles(styles)
 class InterestRange {
 
   static propTypes = {
-    interests: React.PropTypes.array.isRequired
+    range: React.PropTypes.array.isRequired
   };
 
   render() {
@@ -17,9 +16,9 @@ class InterestRange {
       <div className="InterestRange">
         <div className="InterestRange-container">
           <ul className="InterestRange-list">
-            {this.props.interests.map(function(interest, i) {
+            {this.props.range.map(function(item, i) {
               return (
-                <li className="InterestRange-item">{interest}</li>
+                <li className="InterestRange-item">{item}</li>
               );
             })}
           </ul>
