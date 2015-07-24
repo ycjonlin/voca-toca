@@ -5,6 +5,7 @@ import Router from 'react-routing/src/Router';
 import http from './core/http';
 import App from './components/App';
 import ConnectPage from './components/ConnectPage';
+import TalkPage from './components/TalkPage';
 import ContentPage from './components/ContentPage';
 import ContactPage from './components/ContactPage';
 import LoginPage from './components/LoginPage';
@@ -20,6 +21,8 @@ const router = new Router(on => {
   });
 
   on('/connect', async () => <ConnectPage />);
+
+  on('/talk', async () => <TalkPage />);
 
   on('/contact', async () => <ContactPage />);
 
