@@ -20,6 +20,7 @@ class App {
   render() {
     return !this.props.error ? (
       <div>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" />
         <Header />
         {this.props.children}
         {/*}<Feedback />*/}

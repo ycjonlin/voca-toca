@@ -20,7 +20,7 @@ class Header {
           <Navigation className="Header-nav" />
           <div className="Header-banner">
             <h1 className="Header-bannerTitle">Vodka Talks-A-Lot!</h1>
-            <p className="Header-bannerDesc">Tipsy tips for people who looking for a stranger to spend their miserable life with.</p>
+            <p className="Header-bannerDesc">Forget what your mother say. Let's talk to a stranger on the Internet!</p>
           </div>
         </div>
       </div>

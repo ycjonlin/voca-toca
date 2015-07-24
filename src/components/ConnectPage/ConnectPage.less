@@ -9,30 +9,61 @@
     max-width: @max-content-width;
     font-size: 1.5em;
   }
-  &-category {
-    &-container {
-      margin: 0 auto;
-      padding: 0 0 40px;
-      max-width: @max-content-width;
-    }
 
+  &-range {
+    &-list {
+      margin: 0;
+      padding: 0;
+      list-style-type: none;
+      white-space: nowrap;
+      overflow-x: hidden;
+      text-align: center;
+    }
+    &-item {
+      position: relative;
+      width: 180px;
+      margin: 5px;
+      padding: 5px 10px;
+      padding-left: 1em;
+      border-radius: 5px;
+      display: inline-block;
+      text-transform: capitalize;
+      text-align: center;
+      background-color: rgba(255,255,255,0.75);
+      color: #333;
+      & .fa {
+        position: absolute;
+        left: 0.5em;
+        line-height: 30px;
+        color: #999;
+      }
+    }
+    &-item:hover {
+      & .fa {
+        color: #333;
+      }
+    }
+  }
+
+  &-category {
     &-major {
       position: relative;
-      max-width: 640px;
+      max-width: 480px;
       margin: auto;
-      margin-bottom: 1em;
       padding: 0 2em;
       & .fa-caret-left {
         position: absolute;
         top: 0;
         left: 0;
         padding: 5px 10px;
+        font-size: 1.5em;
       }
       & .fa-caret-right {
         position: absolute;
         top: 0;
         right: 0;
         padding: 5px 10px;
+        font-size: 1.5em;
       }
       &-list {
         margin: 0;
@@ -72,17 +103,30 @@
         text-align: center;
       }
       &-item {
-        width: 240px;
+        position: relative;
+        width: 180px;
         margin: 5px;
         padding: 5px 10px;
+        padding-left: 1em;
         border-radius: 5px;
         display: inline-block;
         text-transform: capitalize;
         text-align: center;
-        background-color: rgba(255,255,255,0.5);
+        background-color: rgba(255,255,255,0.75);
         color: #333;
+        & .fa {
+          position: absolute;
+          left: 0.5em;
+          line-height: 30px;
+          color: #999;
+        }
       }
-      &-item:first-child {
+      &-item:hover {
+        & .fa {
+          color: #333;
+        }
+      }
+      &-item-active {
         background-color: rgba(255,255,255,1);
       }
     }
