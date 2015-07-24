@@ -11,7 +11,7 @@ class ConnectPage extends React.Component {
 
     this.state = {
       range: ['food', 'vietnamese'],
-      cursor: 0,
+      cursor: 'eating',
       category: {
         eating: ['food', 'bad-food', 'poison', 'vietnamese'],
         gaming: ['game 1', 'game 2', 'game 3'],
@@ -25,14 +25,16 @@ class ConnectPage extends React.Component {
   };
 
   onScroll(offset) {
-    console.log(this, offset);
+    var categories = Object.keys(this.state.category);
+    var length = categories.length;
+    var index = categories.indexOf(this.state.cursor);
+    var cursor = categories[(index+offset+length)%length];
     this.setState({
-      cursor: this.state.cursor+offset
+      cursor: cursor
     });
   }
 
   onSelect(interest) {
-    console.log(this, interest);
     let index = this.state.range.indexOf(interest);
     if (index == -1) {
       let array = this.state.range.slice();
@@ -44,7 +46,6 @@ class ConnectPage extends React.Component {
   }
 
   onDeselect(interest) {
-    console.log(this, interest);
     let index = this.state.range.indexOf(interest);
     if (index != -1) {
       let array = this.state.range.slice();
@@ -62,6 +63,7 @@ class ConnectPage extends React.Component {
       <div className="ConnectPage">
         <div className="ConnectPage-container">
           <div className="ConnectPage-range">
+            <h3 className="text-center">Connect through your interests</h3>
             <ul className="ConnectPage-range-list">
             {this.state.range.map(function(data, i) {
               return (
@@ -80,36 +82,28 @@ class ConnectPage extends React.Component {
             <i className="fa fa-caret-left"
               onClick={this.onScroll.bind(this, -1)} />
             <ul className="ConnectPage-category-major-list">
-            {Object.keys(this.state.category).map(function(data, i) {
-              return (
-                <li className="ConnectPage-category-major-item">
-                  {data}
-                </li>
-              );
-            }.bind(this))}
+              <li className="ConnectPage-category-major-item">
+                {this.state.cursor}
+              </li>
             </ul>
             <i className="fa fa-caret-right"
               onClick={this.onScroll.bind(this, 1)} />
           </div>
           <div className="ConnectPage-category-minor">
-            {Object.keys(this.state.category).map(function(data, i) {
-              return (
-                <ul className="ConnectPage-category-minor-list">
-                {this.state.category[data].map(function(data, i) {
-                  let className = "ConnectPage-category-minor-item";
-                  if (this.state.range.indexOf(data) != -1)
-                    className += " ConnectPage-category-minor-item-active";
-                  return (
-                    <li className={className}
-                      onClick={this.onSelect.bind(this, data)}>
-                      <i className="fa fa-check" />
-                      {data}
-                    </li>
-                  );
-                }.bind(this))}
-                </ul>
-              );
-            }.bind(this))}
+            <ul className="ConnectPage-category-minor-list">
+              {this.state.category[this.state.cursor].map(function(data, i) {
+                let className = "ConnectPage-category-minor-item";
+                if (this.state.range.indexOf(data) != -1)
+                  className += " ConnectPage-category-minor-item-active";
+                return (
+                  <li className={className}
+                    onClick={this.onSelect.bind(this, data)}>
+                    <i className="fa fa-check" />
+                    {data}
+                  </li>
+                );
+              }.bind(this))}
+            </ul>
           </div>
         </div>
       </div>
