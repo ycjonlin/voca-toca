@@ -16,13 +16,12 @@ class InterestRange {
     return (
       <div className="InterestRange">
         <div className="InterestRange-container">
-          <ul>
-            {JSON.stringify(this.props}
-            {/*this.props.interests.map(function(interest, i) {
+          <ul className="InterestRange-list">
+            {this.props.interests.map(function(interest, i) {
               return (
-                <li>{interest}</li>
+                <li className="InterestRange-item">{interest}</li>
               );
-            })*/}
+            })}
           </ul>
         </div>
       </div>

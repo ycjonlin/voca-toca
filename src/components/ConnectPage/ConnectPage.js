@@ -19,8 +19,8 @@ class ConnectPage {
     return (
       <div className="ConnectPage">
         <div className="ConnectPage-container">
-          <h1>{title}</h1>
-          <InterestRange interests={[]} />
+          <p>{title}</p>
+          <InterestRange interests={['Gaming', 'Sleeping', 'Eating']} />
           <InterestCategory />
         </div>
       </div>
