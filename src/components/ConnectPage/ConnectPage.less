@@ -2,6 +2,37 @@
 
 @import '../variables.less';
 
+.item() {
+  margin: 5px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  display: inline-block;
+  text-transform: capitalize;
+  text-align: center;
+  background-color: rgba(255,255,255,0.75);
+  color: #333;
+  cursor: pointer;
+}
+.item-with-icon() {
+  .item();
+  position: relative;
+  display: inline-block;
+  padding-left: 1.75em;
+  box-shadow: inset 0 5px 10px rgba(255,255,255,0.25);
+  & .fa {
+    position: absolute;
+    left: 0.5em;
+    line-height: 30px;
+    color: #999;
+  }
+  &:hover {
+    box-shadow: inset 0 5px 10px rgba(0,0,0,0.25);
+    & .fa {
+      color: #333;
+    }
+  }
+}
+
 .ConnectPage {
   &-container {
     margin: 0 auto;
@@ -11,45 +42,30 @@
   }
 
   &-range {
+    background-color: rgba(0,0,0,0.5);
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.25);
+    padding: 1em;
+    margin-bottom: 40px;
+
     &-list {
       margin: 0;
       padding: 0;
       list-style-type: none;
-      text-align: center;
+      display: inline;
     }
     &-item {
-      position: relative;
-      width: 180px;
-      margin: 5px;
-      padding: 5px 10px;
-      padding-left: 1em;
-      border-radius: 5px;
-      display: inline-block;
-      text-transform: capitalize;
-      text-align: center;
-      background-color: rgba(255,255,255,0.75);
-      color: #333;
-      & .fa {
-        position: absolute;
-        left: 0.5em;
-        line-height: 30px;
-        color: #999;
-      }
-    }
-    &-item:hover {
-      & .fa {
-        color: #333;
-      }
+      .item-with-icon();
     }
   }
 
   &-category {
     &-major {
       position: relative;
-      max-width: 480px;
+      max-width: 360px;
       margin: auto;
       padding: 0 2em;
       margin-bottom: 40px;
+
       & .fa-caret-left {
         position: absolute;
         top: 0;
@@ -72,19 +88,11 @@
         overflow-x: hidden;
       }
       &-item {
+        .item();
         box-sizing: border-box;
         width: 100%;
-        margin-right: 5px;
-        padding: 5px 10px;
-        border-radius: 5px;
-        display: inline-block;
-        text-align: center;
-        text-transform: capitalize;
-        background-color: rgba(255,255,255,0.5);
-        color: #333;
-      }
-      &-item:first-child {
-        background-color: rgba(255,255,255,1);
+        margin: 0;
+        box-shadow: 0 0 10px rgba(0,0,0,1);
       }
     }
 
@@ -102,28 +110,7 @@
         text-align: center;
       }
       &-item {
-        position: relative;
-        width: 180px;
-        margin: 5px;
-        padding: 5px 10px;
-        padding-left: 1em;
-        border-radius: 5px;
-        display: inline-block;
-        text-transform: capitalize;
-        text-align: center;
-        background-color: rgba(255,255,255,0.75);
-        color: #333;
-        & .fa {
-          position: absolute;
-          left: 0.5em;
-          line-height: 30px;
-          color: #999;
-        }
-      }
-      &-item:hover {
-        & .fa {
-          color: #333;
-        }
+        .item-with-icon();
       }
       &-item-active {
         background-color: rgba(255,255,255,1);
