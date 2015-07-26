@@ -22,7 +22,12 @@ const router = new Router(on => {
 
   on('/connect', async () => <ConnectPage />);
 
-  on('/talk', async () => <TalkPage />);
+  on('/talk/:interests', async (state) => {
+    var interests = state.path.substr(6).split('-').map(function(value){
+      return parseInt(value, 10);
+    });
+    return <TalkPage interests={interests} />;
+  });
 
   on('/contact', async () => <ContactPage />);
 

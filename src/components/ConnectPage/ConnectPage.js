@@ -3,6 +3,7 @@
 import React, { PropTypes } from 'react/addons';
 import styles from './ConnectPage.less';
 import withStyles from '../../decorators/withStyles';
+import Location from '../../core/Location';
 var ReactCSSTransitionGroup = React.addons.CSSTransitionGroup;
 
 @withStyles(styles)
@@ -20,6 +21,12 @@ class ConnectPage extends React.Component {
       }
     };
     this.state.cursor = Object.keys(this.state.category)[0];
+    var vocabulary = [];
+    for (var key in this.state.category) {
+      var value = this.state.category[key];
+      vocabulary = vocabulary.concat(value);
+    }
+    this.state.vocabulary = vocabulary;
   }
 
   static contextTypes = {
@@ -57,9 +64,12 @@ class ConnectPage extends React.Component {
   }
 
   onSubmit() {
-    if (this.state.range.length == 0)
-      return;
-    
+    if (this.state.range.length == 0) return;
+    var vocabulary = this.state.vocabulary;
+    var interests = this.state.range.map(function(value){
+      return vocabulary.indexOf(value);
+    });
+    Location.navigateTo('/talk/'+interests.join('-'));
   }
 
   render() {

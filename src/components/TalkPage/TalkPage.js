@@ -16,6 +16,10 @@ class TalkPage extends React.Component {
     onSetTitle: PropTypes.func.isRequired
   };
 
+  componentDidMount() {
+    console.log(this.props.interests);
+  }
+
   render() {
     return (
       <div className="TalkPage">
