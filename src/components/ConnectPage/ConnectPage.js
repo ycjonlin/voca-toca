@@ -15,7 +15,7 @@ class ConnectPage extends React.Component {
       category: {
         'comfort & support': ['relationships', 'secrets', 'works', 'parenting', 'health', 'great losses', 'homesick', 'shame', 'bad moods', 'sleepless nights'],
         'life styles': ['cooking', 'fitness', 'interior design', 'DIY', 'fashion', 'cosmetics', 'traveling', 'hiking', 'sports', 'dancing', 'new hobbies'],
-        'art & popular culture': ['novels', 'poets', 'movies', 'anime', 'pop music', 'classical music', 'conserts', 'games', 'comnic', 'comedy'],
+        'art & popular culture': ['novels', 'poetry', 'movies', 'anime', 'pop music', 'classical music', 'conserts', 'games', 'comnic', 'comedy'],
         'learning': ['dinosaurs', 'wild lifes', 'history', 'foreign culture', 'literature', 'languages', 'physics', 'mathematics', 'chemistry', 'technology']
       }
     };
@@ -80,9 +80,9 @@ class ConnectPage extends React.Component {
     if (this.state.cursor == 'life styles')
       background = 'url("https://farm5.staticflickr.com/4148/4841385676_9f28409f18_b.jpg")';
     if (this.state.cursor == 'art & popular culture')
-      background = 'url("https://farm4.staticflickr.com/3828/9390132687_7bb421e0db_b.jpg")';
+      background = 'url("https://farm3.staticflickr.com/2947/15379468426_4478ede1d9_b.jpg")';
     if (this.state.cursor == 'learning')
-      background = 'url("https://farm2.staticflickr.com/1034/1423816665_5caa5d1a8e_b.jpg")';
+      background = 'url("https://farm4.staticflickr.com/3859/14418505296_372b2600b4_b.jpg")';
     var style = {backgroundImage: background};
     return (
       <div className="ConnectPage">
