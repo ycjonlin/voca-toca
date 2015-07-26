@@ -14,7 +14,7 @@ class ConnectPage extends React.Component {
       range: [],
       category: {
         'comfort & support': ['relationships', 'secrets', 'works', 'parenting', 'health', 'great losses', 'homesick', 'shame', 'bad moods', 'sleepless nights'],
-        'life styles': ['cooking', 'fitness', 'interior design', 'DIY', 'fashion', 'makeups', 'traveling', 'hiking', 'sports', 'dancing', 'new hobbies'],
+        'life styles': ['cooking', 'fitness', 'interior design', 'DIY', 'fashion', 'cosmetics', 'traveling', 'hiking', 'sports', 'dancing', 'new hobbies'],
         'art & popular culture': ['novels', 'poets', 'movies', 'anime', 'pop music', 'classical music', 'conserts', 'games', 'comnic', 'comedy'],
         'learning': ['dinosaurs', 'wild lifes', 'history', 'foreign culture', 'literature', 'languages', 'physics', 'mathematics', 'chemistry', 'technology']
       }
@@ -56,15 +56,33 @@ class ConnectPage extends React.Component {
     }
   }
 
+  onSubmit() {
+    if (this.state.range.length == 0)
+      return;
+    
+  }
+
   render() {
     //let title = 'Forget what your mother say. Let\'s talk to a stranger on the Internet!';
     //this.context.onSetTitle(title);
+    var background = 'url("https://farm1.staticflickr.com/435/19434459102_bd499a9ed9_k_d.jpg")';
+    if (this.state.cursor == 'comfort & support')
+      background = 'url("https://farm1.staticflickr.com/435/19434459102_bd499a9ed9_k_d.jpg")';
+    if (this.state.cursor == 'life styles')
+      background = 'url("https://farm5.staticflickr.com/4148/4841385676_9f28409f18_b.jpg")';
+    if (this.state.cursor == 'art & popular culture')
+      background = 'url("https://farm4.staticflickr.com/3828/9390132687_7bb421e0db_b.jpg")';
+    if (this.state.cursor == 'learning')
+      background = 'url("https://farm2.staticflickr.com/1034/1423816665_5caa5d1a8e_b.jpg")';
+    var style = {backgroundImage: background};
     return (
       <div className="ConnectPage">
+        <div className="ConnectPage-bg" style={style}>&nbsp;</div>
         <div className="ConnectPage-range">
           <div className="ConnectPage-container">
             Let&apos;s&nbsp;
-            <span className="ConnectPage-range-item">
+            <span className="ConnectPage-range-item"
+              onClick={this.onSubmit.bind(this)}>
               <i className="fa fa-play" />
               talk
             </span>
