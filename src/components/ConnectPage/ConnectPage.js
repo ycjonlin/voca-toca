@@ -4,7 +4,6 @@ import React, { PropTypes } from 'react/addons';
 import styles from './ConnectPage.less';
 import withStyles from '../../decorators/withStyles';
 import Location from '../../core/Location';
-var ReactCSSTransitionGroup = React.addons.CSSTransitionGroup;
 
 @withStyles(styles)
 class ConnectPage extends React.Component {
@@ -91,7 +90,7 @@ class ConnectPage extends React.Component {
         <div className="ConnectPage-range">
           <div className="ConnectPage-container">
             Let&apos;s&nbsp;
-            <span className="ConnectPage-range-item"
+            <span className="ConnectPage-range-item hvr-wobble-horizontal"
               onClick={this.onSubmit.bind(this)}>
               <i className="fa fa-play" />
               talk
@@ -110,13 +109,11 @@ class ConnectPage extends React.Component {
                   <ul className="ConnectPage-range-list">
                   {this.state.range.map(function(data, i) {
                     return (
-                      <ReactCSSTransitionGroup transitionName="carousel">
-                        <li className="ConnectPage-range-item"
-                          onClick={this.onDeselect.bind(this, data)}>
-                          <i className="fa fa-times" />
-                          {data}
-                        </li>
-                      </ReactCSSTransitionGroup>
+                      <li className="ConnectPage-range-item hvr-bob"
+                        onClick={this.onDeselect.bind(this, data)}>
+                        <i className="fa fa-times" />
+                        {data}
+                      </li>
                     );
                   }.bind(this))}
                   </ul>
@@ -128,20 +125,20 @@ class ConnectPage extends React.Component {
         </div>
         <div className="ConnectPage-container">
           <div className="ConnectPage-category-major">
-            <i className="fa fa-caret-left"
+            <i className="fa fa-caret-left hvr-wobble-horizontal"
               onClick={this.onScroll.bind(this, -1)} />
             <ul className="ConnectPage-category-major-list">
               <li className="ConnectPage-category-major-item">
                 {this.state.cursor}
               </li>
             </ul>
-            <i className="fa fa-caret-right"
+            <i className="fa fa-caret-right hvr-wobble-horizontal"
               onClick={this.onScroll.bind(this, 1)} />
           </div>
           <div className="ConnectPage-category-minor">
             <ul className="ConnectPage-category-minor-list">
               {this.state.category[this.state.cursor].map(function(data, i) {
-                let className = "ConnectPage-category-minor-item";
+                let className = "ConnectPage-category-minor-item hvr-bob";
                 let iconName = "fa fa-check";
                 if (this.state.range.indexOf(data) != -1) {
                   className += " ConnectPage-category-minor-item-active";
